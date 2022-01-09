@@ -1,0 +1,16 @@
+
+{% extends 'layout.twig' %}
+    {% block header %}
+        {% include'include/header.twig' %}
+    {% endblock %}
+{% block body %}
+
+
+        <a href="{{ path('node_create', {'id':board.id}) }}" style="color: black"><h3>New node</h3></a>
+
+
+        <a href="{{ path('panelnode', {'id':board.id}) }}" style="color: black"><h3>Board's nodes</h3></a>
+
+
+
+{% endblock %}

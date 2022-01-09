@@ -1,0 +1,16 @@
+
+{% extends 'layout.twig' %}
+    {% block header %}
+        {% include'include/header.twig' %}
+    {% endblock %}
+{% block body %}
+
+
+    <a href="{{ path('event_create', {'id':node.id}) }}" style="color: black"><h3>New event</h3></a>
+{##}
+{##}
+    <a href="{{ path('panelevent', {'id':node.id}) }}" style="color: black"><h3>node's events</h3></a>
+
+
+
+{% endblock %}

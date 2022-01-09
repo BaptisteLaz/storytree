@@ -1,0 +1,23 @@
+{% extends 'layout.twig' %}
+    {% block header %}
+        {% include'include/header.twig' %}
+    {% endblock %}
+{% block body %}
+
+    <h2>Select board:</h2>
+    <div class="panel_board">
+        {% for board in boards %}
+            <div class="cardboard">
+                <div class="cardboard--name">
+                    <h2> {{ board.name }} </h2>
+                </div>
+                <div class="cardboard--logo">
+                    <a href="{{ path('board', {'id':board.id}) }}">
+                        <h3>Edit board.</h3>
+                    </a>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

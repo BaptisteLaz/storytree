@@ -1,0 +1,13 @@
+
+{% extends 'layout.twig' %}
+    {% block header %}
+        {% include'include/header.twig' %}
+    {% endblock %}
+{% block body %}
+
+    <h2> New Node: </h2>
+    {{ form_start(nodeForm) }}
+    {{ form_row(nodeForm.name,{'attr': {'placeholder': 'Node name'}}) }}
+    <button type="submit">Continuer</button>
+    {{ form_end(nodeForm) }}
+{% endblock %}

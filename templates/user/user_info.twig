@@ -3,6 +3,7 @@
         {% include'include/header.twig' %}
     {% endblock %}
 {% block body %}
+    <div class="profil">
     <p>E-mail : {{ app.user.email }}</p>
     <p>Username : {{ app.user.username }}</p>
 
@@ -15,7 +16,12 @@
         Enregistrer
     </button>
     {{ form_end(userFormView) }}
+    <hr>
+    <a href="{{ path('board_create') }}"> board create </a>
+    <hr>
+    <a href="{{ path('panelboard') }}"> My boards </a>
 
+    </div>
 
 
 {% endblock %}

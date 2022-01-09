@@ -1,0 +1,13 @@
+
+{% extends 'layout.twig' %}
+    {% block header %}
+        {% include'include/header.twig' %}
+    {% endblock %}
+{% block body %}
+
+    <h2> New Event: </h2>
+    {{ form_start(eventForm) }}
+    {{ form_row(eventForm.name,{'attr': {'placeholder': 'Event name'}}) }}
+    <button type="submit">Continuer</button>
+    {{ form_end(eventForm) }}
+{% endblock %}

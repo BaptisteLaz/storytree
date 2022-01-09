@@ -1,0 +1,13 @@
+{% extends 'layout.twig' %}
+    {% block header %}
+        {% include'include/header.twig' %}
+    {% endblock %}
+{% block body %}
+   <h2> New board: </h2>
+    {{ form_start(boardForm) }}
+    {{ form_row(boardForm.name,{'attr': {'placeholder': 'Board name'}}) }}
+    <button type="submit">Continuer</button>
+    {{ form_end(boardForm) }}
+
+
+{% endblock %}

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -46,6 +48,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $username;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Board::class, mappedBy="author", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $board;
+
+    public function __construct()
+    {
+        $this->board = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -154,4 +167,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection|Board[]
+     */
+    public function getBoard(): Collection
+    {
+        return $this->board;
+    }
+
+    public function addBoard(Board $board): self
+    {
+        if (!$this->board->contains($board)) {
+            $this->board[] = $board;
+            $board->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBoard(Board $board): self
+    {
+        if ($this->board->removeElement($board)) {
+            // set the owning side to null (unless already changed)
+            if ($board->getAuthor() === $this) {
+                $board->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }
