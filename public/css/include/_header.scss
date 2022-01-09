@@ -1,0 +1,55 @@
+$background_header--color: $background--third;
+
+.header {
+  background-color: $background_header--color;
+  //color: set-color($background_header--color);
+
+  height: 150px;
+  width: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topnav {
+
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  background: #999999;
+
+  &--left {
+    height: 100%;
+    margin: 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e06e93;
+
+
+  }
+
+  &--right {
+    height: 100%;
+    margin: 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #58702e;
+  }
+}
+
+.nav-link {
+  height: 100%;
+  width: 100px;
+  margin: 0 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8ea1e;
+  color: #000;
+
+
+}

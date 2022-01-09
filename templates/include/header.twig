@@ -1,0 +1,16 @@
+<div class="header">
+    <div class="topnav">
+        <div class="topnav--left">
+        <a class="nav-link" href="{{ path('main_home') }}"> Home </a>
+         </div>
+        <div class="topnav--right">
+        {% if app.user %}
+            <a class="nav-link" href="{{ path('user') }}"> User </a>
+            <a class="nav-link" href="{{ path('logout') }}"> Logout </a>
+        {% else %}
+        <a class="nav-link" href="{{ path('login') }}"> Login </a>
+        <a class="nav-link" href="{{ path('app_register') }}"> Register </a>
+        {% endif %}
+    </div>
+    </div>
+</div>

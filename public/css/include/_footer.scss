@@ -1,0 +1,14 @@
+$background_footer--color: $background--third;
+
+.footer {
+  background-color: $background_footer--color;
+  color: set-color($background_footer--color);
+
+  height: 150px;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

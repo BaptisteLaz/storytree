@@ -1,0 +1,8 @@
+{% extends 'layout.twig' %}
+    {% block header %}
+        {% include'include/header.twig' %}
+    {% endblock %}
+{% block body %}
+    <p>E-mail : {{ user.email }}</p>
+    <p>Username : {{ user.username }}</p>
+{% endblock %}

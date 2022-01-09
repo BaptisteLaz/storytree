@@ -1,0 +1,26 @@
+@import "./mixins.scss";
+@import "./colors.scss";
+@import "./functions.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #FFF;
+}
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color: $background--main;
+  color: #000;
+}
+@import "main/home.scss";
+@import "include/header.scss";
+@import "include/footer.scss";

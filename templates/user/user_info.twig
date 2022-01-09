@@ -1,0 +1,21 @@
+{% extends 'layout.twig' %}
+    {% block header %}
+        {% include'include/header.twig' %}
+    {% endblock %}
+{% block body %}
+    <p>E-mail : {{ app.user.email }}</p>
+    <p>Username : {{ app.user.username }}</p>
+
+
+    <h3>Edit</h3>
+    {{ form_start(userFormView, {'enctype': 'multipart/form-data'} ) }}
+    {{ form_row(userFormView.username) }}
+
+    <button type="submit" class="btnValid">
+        Enregistrer
+    </button>
+    {{ form_end(userFormView) }}
+
+
+
+{% endblock %}
