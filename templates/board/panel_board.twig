@@ -9,12 +9,26 @@
         {% for board in boards %}
             <div class="cardboard">
                 <div class="cardboard--name">
-                    <h2> {{ board.name }} </h2>
+                    <h2><a href="{{ path('board', {'id':board.id}) }}"> {{ board.name }}  </a></h2>
                 </div>
                 <div class="cardboard--logo">
+
                     <a href="{{ path('board', {'id':board.id}) }}">
-                        <h3>Edit board.</h3>
+                        Board:
+                        {% for node in board.node %}
+                            <div class="card--node">
+                                <a href="{{ path('node', {'id':node.id}) }}">
+                                    Node:
+                                    {{ node.name }}
+                                </a>
+                                {% for event in node.event %}
+                                    <div class="card--event">
+                                        <a href="{{ path('event', {'id':event.id}) }}">Event: {{ event.name }}</a></div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
                     </a>
+
                 </div>
 
             </div>

@@ -3,9 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Board;
+use App\Entity\Event;
+use App\Entity\Node;
 use App\Form\BoardType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,7 +21,10 @@ class BoardController extends AbstractController
     public function index(EntityManagerInterface $entityManager)
     {
         $boardRepository = $entityManager->getRepository(Board::class);
+
         $boards = $boardRepository->findBoardById($user = $this->getUser());
+
+
         return $this->render('board/panel_board.twig', compact('boards')
         );
     }
@@ -33,7 +39,6 @@ class BoardController extends AbstractController
 
         return $this->render('board/board.twig', compact('board'));
     }
-
 
 
     /**
@@ -63,3 +68,18 @@ class BoardController extends AbstractController
         );
     }
 }
+
+
+
+//
+//foreach ($board as $boards){
+//    dump($boards);
+//    dump($board);
+//    $nodes = $nodeRepository->findNodeByBoard($board);
+//    foreach ($node as $nodes){
+//        $events = $eventRepository->findEventByNode($node);
+//        foreach ($event as $events){
+//            dump($event);
+//        }
+//    }
+//}

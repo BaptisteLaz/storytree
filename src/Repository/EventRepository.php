@@ -19,6 +19,20 @@ class EventRepository extends ServiceEntityRepository
         parent::__construct($registry, Event::class);
     }
 
+    public function findEventByNode($node)
+    {
+        $entityManager = $this->getEntityManager();
+        $dql = <<<DQL
+SELECT e
+FROM APP\Entity\Event e
+WHERE e.node = :node
+DQL;
+        $query = $entityManager
+            ->createQuery($dql)
+            ->setParameter(':node', $node);
+
+        return $query->getResult();
+    }
     // /**
     //  * @return Event[] Returns an array of Event objects
     //  */

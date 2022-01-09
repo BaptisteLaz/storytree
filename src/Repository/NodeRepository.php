@@ -18,7 +18,20 @@ class NodeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Node::class);
     }
+    public function findNodeByBoard($board)
+    {
+        $entityManager = $this->getEntityManager();
+        $dql = <<<DQL
+SELECT n
+FROM APP\Entity\Node n
+WHERE n.board = :board
+DQL;
+        $query = $entityManager
+            ->createQuery($dql)
+            ->setParameter(':board', $board);
 
+        return $query->getResult();
+    }
     // /**
     //  * @return Node[] Returns an array of Node objects
     //  */

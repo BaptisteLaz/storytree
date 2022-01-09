@@ -1,10 +1,11 @@
-.panel_board{
+.panel_board {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
 }
-.cardboard{
+
+.cardboard {
   width: 400px;
   height: 600px;
   display: flex;
@@ -15,27 +16,54 @@
   border-radius: 15px;
   margin: 15px;
   overflow: hidden;
-  &--name{
+
+  &--name {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 200px;
     width: 100%;
     border-bottom: 2px solid #191919;
-    background-color: darksalmon;
-  }
-  &--logo{
+    background-color: #c23608;
     cursor: pointer;
+
+  }
+
+  &--logo {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 400px;
     width: 100%;
     background-color: cornflowerblue;
-    & a{
-      width: 100%;
-      height: 100%;
+
+    & .card--node {
+      min-width: 10px;
+      min-height: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 5px;
+      padding: 5px;
+      border: 2px solid #191919;
+      border-radius: 15px;
+      background-color: #ee209a;
     }
 
+    & .card--event {
+      min-width: 50px;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 5px;
+      padding: 5px;
+      border: 2px solid #191919;
+      border-radius: 15px;
+      background-color: #180065;
+    }
   }
+
 }
