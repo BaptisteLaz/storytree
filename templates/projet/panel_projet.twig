@@ -1,0 +1,31 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+    <div class="panel_container">
+        <h2>Voici vos projets.</h2>
+        <div id="panel" class="panel_projet">
+
+            {% for projet in projets %}
+                <div class="cardboard">
+                    <div class="cardboard--name">
+                        <h2><a href="{{ path('projet', {'id':projet.id}) }}"> {{ projet.name }}  </a></h2>
+                    </div>
+                    <div class="cardboard--logo">
+
+
+
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{{ asset('js/zoom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/movable.js') }}"></script>
+
+{% endblock %}
+
+{#{% block javascript %}#}
+{#{% endblock %}#}

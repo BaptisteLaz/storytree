@@ -4,12 +4,24 @@
         {% include'include/header.twig' %}
     {% endblock %}
 {% block body %}
+    <div class="panel_container">
+
+    <div class="cardboard--selected">
+        <div class="cardboard--name">
+            <h2>Board name: {{ board.name }}</h2>
+        </div>
+        <div class="cardboard--logo">
+
+            <a href="{{ path('node_create', {'id':board.id}) }}" style="color: black"><h3>New node</h3></a>
+            <a href="{{ path('panelnode', {'id':board.id}) }}" style="color: black"><h3>Board's nodes</h3></a>
+{#            <a href="{{ path('deleteboard', {'id':board.id}) }}"> Delete Board</a>#}
+
+        </div>
+
+    </div>
+    </div>
 
 
-        <a href="{{ path('node_create', {'id':board.id}) }}" style="color: black"><h3>New node</h3></a>
-
-
-        <a href="{{ path('panelnode', {'id':board.id}) }}" style="color: black"><h3>Board's nodes</h3></a>
 
 
 

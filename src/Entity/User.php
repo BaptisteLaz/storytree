@@ -50,14 +50,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $username;
 
     /**
-     * @ORM\OneToMany(targetEntity=Board::class, mappedBy="author", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Projet::class, mappedBy="user", orphanRemoval=true)
      */
-    private $board;
+    private $projet;
 
     public function __construct()
     {
-        $this->board = new ArrayCollection();
+        $this->projet = new ArrayCollection();
     }
+
+
 
 
     public function getId(): ?int
@@ -169,34 +171,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|Board[]
+     * @return Collection|Projet[]
      */
-    public function getBoard(): Collection
+    public function getProjet(): Collection
     {
-        return $this->board;
+        return $this->projet;
     }
 
-    public function addBoard(Board $board): self
+    public function addProjet(Projet $projet): self
     {
-        if (!$this->board->contains($board)) {
-            $this->board[] = $board;
-            $board->setAuthor($this);
+        if (!$this->projet->contains($projet)) {
+            $this->projet[] = $projet;
+            $projet->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeBoard(Board $board): self
+    public function removeProjet(Projet $projet): self
     {
-        if ($this->board->removeElement($board)) {
+        if ($this->projet->removeElement($projet)) {
             // set the owning side to null (unless already changed)
-            if ($board->getAuthor() === $this) {
-                $board->setAuthor(null);
+            if ($projet->getUser() === $this) {
+                $projet->setUser(null);
             }
         }
 
         return $this;
     }
+
+
 
 
 }

@@ -5,11 +5,25 @@
     {% endblock %}
 {% block body %}
 
+    <div class="panel_container">
+    <div class="cardboard--selected">
+        <div class="cardboard--name">
+            <h2>Node name: {{ node.name }}</h2>
+        </div>
+        <div class="cardboard--logo">
 
-    <a href="{{ path('event_create', {'id':node.id}) }}" style="color: black"><h3>New event</h3></a>
-{##}
-{##}
-    <a href="{{ path('panelevent', {'id':node.id}) }}" style="color: black"><h3>node's events</h3></a>
+            <a href="{{ path('event_create', {'id':node.id}) }}" style="color: black"><h3>New event</h3></a>
+            <a href="{{ path('panelevent', {'id':node.id}) }}" style="color: black"><h3>node's events</h3></a>
+            <a href="{{ path('deletenode', {'id':node.id}) }}"> Delete Node</a>
+
+        </div>
+
+    </div>
+    </div>
+
+
+
+
 
 
 

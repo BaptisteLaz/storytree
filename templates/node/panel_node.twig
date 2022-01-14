@@ -4,7 +4,8 @@
         {% include'include/header.twig' %}
     {% endblock %}
 {% block body %}
-    <div class="panel_board">
+    <div class="panel_container">
+    <div id="panel" class="panel_board">
         {% for node in nodes %}
             <div class="cardboard">
                 <div class="cardboard--name">
@@ -19,4 +20,7 @@
             </div>
         {% endfor %}
     </div>
+    </div>
+    <script type="text/javascript" src="{{ asset('js/zoom.js') }}"></script>
+
 {% endblock %}

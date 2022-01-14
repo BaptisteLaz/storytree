@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Board;
 use App\Entity\Event;
 use App\Entity\Node;
 use App\Form\EventType;
@@ -19,7 +20,6 @@ class EventController extends AbstractController
     public function index($id, EntityManagerInterface $entityManager)
     {
         $nodeRepository = $entityManager->getRepository(Node::class);
-        $eventRepository = $entityManager->getRepository(Event::class);
         $node=$nodeRepository->find($id);
         $events = $node->getEvent();
         return $this->render('event/panel_event.twig', compact('events')
@@ -34,8 +34,11 @@ class EventController extends AbstractController
         $eventRepository = $entityManager->getRepository(Event::class);
         $event = $eventRepository->find($id);
 
+
         return $this->render('event/event.twig', compact('event'));
     }
+
+
 
     /**
      * @Route("/createevent/{id}", name="event_create")
@@ -65,5 +68,21 @@ class EventController extends AbstractController
                 'eventForm' => $eventForm->createView(),
             ]
         );
+    }
+
+    /**
+     * @Route("/deleteevent/{id}", name="deleteevent")
+     */
+    public function deleteEvent($id, EntityManagerInterface $entityManager)
+    {
+        $eventRepository = $entityManager->getRepository(Event::class);
+        $event = $eventRepository->find($id);
+        $boardRepository = $entityManager->getRepository(Board::class);
+
+        $boards = $boardRepository->findBoardById($user = $this->getUser());
+        $entityManager->remove($event);
+        $entityManager->flush();
+
+        return $this->render('board/panel_board.twig', compact('event','boards'));
     }
 }

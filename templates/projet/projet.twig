@@ -1,0 +1,27 @@
+
+{% extends 'layout.twig' %}
+    {% block header %}
+        {% include'include/header.twig' %}
+    {% endblock %}
+{% block body %}
+    <div class="panel_container">
+
+        <div class="cardboard--selected">
+            <div class="cardboard--name">
+                <h2>projet name: {{ projet.name }}</h2>
+            </div>
+            <div class="cardboard--logo">
+
+                <a href="{{ path('board_create', {'id':projet.id}) }}" style="color: black"><h3>Nouvelle board</h3></a>
+                <a href="{{ path('panelboard', {'id':projet.id}) }}" style="color: black"><h3>Boards du projet</h3></a>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}

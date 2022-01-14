@@ -13,13 +13,18 @@
 
 </head>
 <body>
-{% block header %}{% endblock %}
+<div class="app-container">
+{% block header %} {% include'include/header.twig' %}{% endblock %}
 
 
-{% block body %}<p>Layout</p>{% endblock %}
+<div class="app-main">
 
-
-
+    {% block appnav %}{% include'include/app-sidebar.twig' %}{% endblock %}
+    <div class="app-body">
+    {% block body %}{% endblock %}
+    </div>
+</div>
 {% block footer %}{% endblock %}
+</div>
 </body>
 </html>

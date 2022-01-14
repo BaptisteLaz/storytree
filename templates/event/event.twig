@@ -5,6 +5,21 @@
     {% endblock %}
 {% block body %}
 
+    <div class="panel_container">
+    <div class="cardboard--selected">
+        <div class="cardboard--name">
+            <h2>Event name: {{ event.name }}</h2>
+        </div>
+        <div class="cardboard--logo">
+
+            <a href="{{ path('deleteevent', {'id':event.id}) }}"> Delete Event</a>
+
+        </div>
+
+    </div>
+    </div>
+
+
 
 
 {% endblock %}

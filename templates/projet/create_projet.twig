@@ -1,0 +1,13 @@
+{% extends 'layout.twig' %}
+    {% block header %}
+        {% include'include/header.twig' %}
+    {% endblock %}
+{% block body %}
+    <h2> Nouveau projet: </h2>
+    {{ form_start(projetForm) }}
+    {{ form_row(projetForm.name,{'attr': {'placeholder': 'Projet name'}}) }}
+    <button type="submit">Continuer</button>
+    {{ form_end(projetForm) }}
+
+
+{% endblock %}

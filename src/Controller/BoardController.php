@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Board;
 use App\Entity\Event;
 use App\Entity\Node;
+use App\Entity\Projet;
 use App\Form\BoardType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,13 +17,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class BoardController extends AbstractController
 {
     /**
-     * @Route("/panelboard", name="panelboard")
+     * @Route("/panelboard/{id}", name="panelboard")
      */
-    public function index(EntityManagerInterface $entityManager)
+    public function index($id,EntityManagerInterface $entityManager)
     {
-        $boardRepository = $entityManager->getRepository(Board::class);
-
-        $boards = $boardRepository->findBoardById($user = $this->getUser());
+        $projetRepository = $entityManager->getRepository(Projet::class);
+        $projet=$projetRepository->find($id);
+        $boards = $projet->getBoard();
 
 
         return $this->render('board/panel_board.twig', compact('boards')
@@ -42,19 +43,18 @@ class BoardController extends AbstractController
 
 
     /**
-     * @Route("/createboard", name="board_create")
+     * @Route("/createboard/{id}", name="board_create")
      */
-    public function createboard(Request $request, EntityManagerInterface $entityManager)
+    public function createboard($id,Request $request, EntityManagerInterface $entityManager)
     {
         $board = new Board();
         $boardForm = $this->createForm(BoardType::class, $board);
         $boardForm->handleRequest($request);
 
-        $user = $this->getUser();
-
+        $projetRepository = $entityManager->getRepository(Projet::class);
+        $board->setProjet($projetRepository->find($id));
         if ($boardForm->isSubmitted()) {
             if ($boardForm->isValid()) {
-                $board->setAuthor($user);
 
                 $entityManager->persist($board);
                 $entityManager->flush();
@@ -67,6 +67,22 @@ class BoardController extends AbstractController
             ]
         );
     }
+
+//    /**
+//     * @Route("/deleteboard/{id}", name="deleteboard")
+//     */
+//    public function deleteBoard($id, EntityManagerInterface $entityManager)
+//    {
+//        $boardRepository = $entityManager->getRepository(Board::class);
+//        $board = $boardRepository->find($id);
+//        $boardRepository = $entityManager->getRepository(Board::class);
+//
+//        $entityManager->remove($board);
+//        $entityManager->flush();
+//        $boards = $boardRepository->findBoardById($user = $this->getUser());
+//
+//        return $this->render('board/panel_board.twig', compact('board','boards'));
+//    }
 }
 
 

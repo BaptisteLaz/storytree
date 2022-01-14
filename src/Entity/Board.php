@@ -26,15 +26,17 @@ class Board
 
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="board")
+     * @ORM\ManyToOne(targetEntity=Projet::class, inversedBy="board")
      * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
-    private $author;
+    private $projet;
 
     /**
      * @ORM\OneToMany(targetEntity=Node::class, mappedBy="board", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $node;
+
+
 
     public function __construct()
     {
@@ -62,14 +64,14 @@ class Board
     }
 
 
-    public function getAuthor(): ?User
+    public function getProjet(): ?Projet
     {
-        return $this->author;
+        return $this->projet;
     }
 
-    public function setAuthor(?User $author): self
+    public function setProjet(?Projet $projet): self
     {
-        $this->author = $author;
+        $this->projet = $projet;
 
         return $this;
     }
@@ -103,6 +105,8 @@ class Board
 
         return $this;
     }
+
+
 
 
 

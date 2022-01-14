@@ -4,8 +4,10 @@
     {% endblock %}
 {% block body %}
 
-    <h2>Select board:</h2>
-    <div class="panel_board">
+<div class="panel_container">
+   <h2>Voici toutes vos Boards.</h2>
+    <div id="panel" class="panel_board">
+
         {% for board in boards %}
             <div class="cardboard">
                 <div class="cardboard--name">
@@ -34,4 +36,12 @@
             </div>
         {% endfor %}
     </div>
+    </div>
+
+    <script type="text/javascript" src="{{ asset('js/zoom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/movable.js') }}"></script>
+
 {% endblock %}
+
+{#{% block javascript %}#}
+{#{% endblock %}#}

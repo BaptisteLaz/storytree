@@ -70,4 +70,20 @@ class NodeController extends AbstractController
             ]
         );
     }
+
+    /**
+     * @Route("/deletenode/{id}", name="deletenode")
+     */
+    public function deleteNode($id, EntityManagerInterface $entityManager)
+    {
+        $nodeRepository = $entityManager->getRepository(Node::class);
+        $node = $nodeRepository->find($id);
+        $boardRepository = $entityManager->getRepository(Board::class);
+
+        $boards = $boardRepository->findBoardById($user = $this->getUser());
+        $entityManager->remove($node);
+        $entityManager->flush();
+
+        return $this->render('board/panel_board.twig', compact('node','boards'));
+    }
 }

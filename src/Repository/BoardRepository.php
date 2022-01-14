@@ -20,20 +20,20 @@ class BoardRepository extends ServiceEntityRepository
     }
 
 
-    public function findBoardById($user)
-    {
-        $entityManager = $this->getEntityManager();
-        $dql = <<<DQL
-SELECT a
-FROM APP\Entity\Board a
-WHERE a.author = :user
-DQL;
-        $query = $entityManager
-            ->createQuery($dql)
-            ->setParameter(':user', $user);
-
-        return $query->getResult();
-    }
+//    public function findBoardById($user)
+//    {
+//        $entityManager = $this->getEntityManager();
+//        $dql = <<<DQL
+//SELECT a
+//FROM APP\Entity\Board a
+//WHERE a.author = :user
+//DQL;
+//        $query = $entityManager
+//            ->createQuery($dql)
+//            ->setParameter(':user', $user);
+//
+//        return $query->getResult();
+//    }
     // /**
     //  * @return Board[] Returns an array of Board objects
     //  */
