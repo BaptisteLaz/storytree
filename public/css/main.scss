@@ -6,10 +6,12 @@
   margin: 0;
   padding: 0;
 }
+
 a {
   text-decoration: none;
   color: #000000;
 }
+
 html {
   height: 100%;
   width: 100%;
@@ -23,16 +25,41 @@ body {
 
 }
 
-$background_header--color: $background--second;
+h1 {
+  font-size: 78px;
+}
+
+h2 {
+  font-size: 46px;
+
+}
+
+h3 {
+  font-size: 26px;
+
+}
+
+h4 {
+  font-size: 18px;
+
+}
+
+h5 {
+  font-size: 16px;
+
+}
+
+
+$background_header--color: $background--main;
 $sidebar--width: 75px;
 $header--height: 75px;
 
-.app-container{
+.app-container {
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
+
 .app-header {
   background-color: $background_header--color;
   height: $header--height;
@@ -43,39 +70,45 @@ $header--height: 75px;
   justify-content: center;
 }
 
-.app-sidebar{
+.app-sidebar {
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: $background--second;
+  background-color: $background--main;
   padding: 25px 25px 0 25px;
 
 }
-.app-main{
+
+.app-main {
   display: flex;
   overflow: hidden;
-  height: calc(100% - #{$header--height}) ;
+  height: calc(100% - #{$header--height});
 }
-.app-body{
+
+.app-body {
   width: 100%;
-  background-color: $background--second;
-  padding: 0 25px 25px 0;
+  background-color: $background--main;
+  //padding: 0 25px 25px 0;
   overflow: hidden;
   display: flex;
   flex-direction: row;
 }
-.panel_container{
+
+.app-user {
+  display: flex;
+  height: calc(100vh - #{$header--height});
+  width: 100%;
+}
+
+.panel_container {
   width: 100%;
   height: 80%;
   display: flex;
-  justify-content: center;
   overflow: hidden;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
 
 }
-
 
 
 ::-webkit-scrollbar {
@@ -98,7 +131,6 @@ $header--height: 75px;
 }
 
 
-
 @import "main/home.scss";
 @import "include/header.scss";
 @import "include/footer.scss";
@@ -106,3 +138,4 @@ $header--height: 75px;
 
 @import "user/user.scss";
 @import "board/board.scss";
+@import "projet/projet.scss";

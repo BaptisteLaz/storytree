@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Projet;
 use App\Entity\User;
 use App\Form\UserEditType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,24 +17,29 @@ class UserController extends AbstractController
     /**
      * @Route("/user", name="user")
      */
-    public function index(Request $request, EntityManagerInterface $entityManager,UserPasswordEncoderInterface $passwordEncoder): Response
+    public function index(EntityManagerInterface $entityManager)
     {
+        $boards_length=0;
+        $nodes_length=0;
+        $events_length=0;
+        $projetRepository = $entityManager->getRepository(Projet::class);
+        $projets = $projetRepository->findProjetById($user = $this->getUser());
+        $projet_length = count($projets);
+        foreach ($projets as $projet) {
+            $boards = $projet->getBoard();
+            $boards_length += count($boards);
 
-        $user = $this->getUser();
-        $userForm = $this->createForm(UserEditType::class, $user);
-        $userForm->handleRequest($request);
-        if ($userForm->isSubmitted()) {
-            if ($userForm->isValid()) {
-                $entityManager->persist($user);
-                $entityManager->flush();
-                return $this->render('user/user_info.twig', ['userFormView' => $userForm->createView()]);
-
-            }
-            else {
-                $entityManager->refresh($user);
+            foreach ($boards as $board){
+                $nodes = $board->getNode();
+                $nodes_length += count($nodes);
+               foreach ($nodes as $node){
+                   $events = $node->getEvent();
+                   $events_length += count($events);
+               }
             }
         }
-        return $this->render('user/user_info.twig', ['userFormView' => $userForm->createView()]);
+        return $this->render('user/user_info.twig', compact('projets', 'projet_length','boards_length','nodes_length','events_length'));
+
     }
 
     /**
@@ -46,6 +52,6 @@ class UserController extends AbstractController
 
 
         return $this->render(
-            'user/user_profil.twig',compact('user'));
+            'user/user_profil.twig', compact('user'));
     }
 }

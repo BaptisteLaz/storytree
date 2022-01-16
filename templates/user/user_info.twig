@@ -1,26 +1,180 @@
 {% extends 'layout.twig' %}
-    {% block header %}
-        {% include'include/header.twig' %}
+
+
+ {% block appnav %}{% include'include/app-sidebar.twig' %}{% endblock %}
+
+    {% block body %}
+        <div class="app-user">
+        <div class="board-section">
+            <div class="board-section-header">
+                <div class="board-section-title"><h2>Projets</h2></div>
+                <div class="board-section-line">
+                    <div class="board-section-left">
+                        <div class="state"><h3>Nombre de projets: {{ projet_length }}</h3></div>
+                        <div class="state"><h3>Nombre de boards: {{ boards_length }}</h3></div>
+                        <div class="state"><h3>Nombre de nodes: {{ nodes_length }}</h3></div>
+                        <div class="state"><h3>Nombre d'evenements: {{ events_length }}</h3></div>
+                    </div>
+                    <div class="board-section-right">
+                        <div class="position">
+
+                        </div>
+                        <div class="position">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="boards-grid">
+                {% for projet in projets %}
+                    <div class="board-box"><a href="{{ path('projet', {'id':projet.id}) }}">{{ projet.name }}</a></div>
+
+                {% endfor %}
+            </div>
+        </div>
+        <div class="review-section">
+            <div class="review-section-header">
+                <div class="review-section-title"><h2>Review</h2></div>
+
+            </div>
+            <div class="review-container">
+                <div class="review-list">
+                    <div class="review">
+                        <div class="review-user">
+                            <a href="{{ path('userProfile', {'userId':'5'}) }}"><div class="user-picture"></div></a>
+                            <div class="user-username"><h3>User</h3></div>
+                            <div class="review-notation">★★★★☆</div>
+                        </div>
+                        <div class="review-title"><h4>Review title</h4></div>
+                        <div class="review-message">review-message review-message review-message review-message
+                            review-message
+                        </div>
+                        <div class="review-board">review-board</div>
+
+                    </div>
+                    <div class="review">
+                        <div class="review-user">
+                            <div class="user-picture"></div>
+                            <div class="user-username"><h3>User</h3></div>
+                            <div class="review-notation">★★★★☆</div>
+                        </div>
+                        <div class="review-title"><h4>Review title</h4></div>
+                        <div class="review-message">review-message review-message review-message review-message
+                            review-message
+                        </div>
+                        <div class="review-board">review-board</div>
+
+                    </div>
+                    <div class="review">
+                        <div class="review-user">
+                            <div class="user-picture"></div>
+                            <div class="user-username"><h3>User</h3></div>
+                            <div class="review-notation">★★★★☆</div>
+                        </div>
+                        <div class="review-title"><h4>Review title</h4></div>
+                        <div class="review-message">review-message review-message review-message review-message
+                            review-message
+                        </div>
+                        <div class="review-board">review-board</div>
+
+                    </div>
+                    <div class="review">
+                        <div class="review-user">
+                            <div class="user-picture"></div>
+                            <div class="user-username"><h3>User</h3></div>
+                            <div class="review-notation">★★★★☆</div>
+                        </div>
+                        <div class="review-title"><h4>Review title</h4></div>
+                        <div class="review-message">review-message review-message review-message review-message
+                            review-message
+                        </div>
+                        <div class="review-board">review-board</div>
+
+                    </div>
+                    <div class="review">
+                        <div class="review-user">
+                            <div class="user-picture"></div>
+                            <div class="user-username"><h3>User</h3></div>
+                            <div class="review-notation">★★★★☆</div>
+                        </div>
+                        <div class="review-title"><h4>Review title</h4></div>
+                        <div class="review-message">review-message review-message review-message review-message
+                            review-message
+                        </div>
+                        <div class="review-board">review-board</div>
+
+                    </div>
+                    <div class="review">
+                        <div class="review-user">
+                            <div class="user-picture"></div>
+                            <div class="user-username"><h3>User</h3></div>
+                            <div class="review-notation">★★★★☆</div>
+                        </div>
+                        <div class="review-title"><h4>Review title</h4></div>
+                        <div class="review-message">review-message review-message review-message review-message
+                            review-message
+                        </div>
+                        <div class="review-board">review-board</div>
+
+                    </div>
+                    <div class="review">
+                        <div class="review-user">
+                            <div class="user-picture"></div>
+                            <div class="user-username"><h3>User</h3></div>
+                            <div class="review-notation">★★★★☆</div>
+                        </div>
+                        <div class="review-title"><h4>Review title</h4></div>
+                        <div class="review-message">review-message review-message review-message review-message
+                            review-message
+                        </div>
+                        <div class="review-board">review-board</div>
+
+                    </div>
+                    <div class="review">
+                        <div class="review-user">
+                            <div class="user-picture"></div>
+                            <div class="user-username"><h3>User</h3></div>
+                            <div class="review-notation">★★★★☆</div>
+                        </div>
+                        <div class="review-title"><h4>Review title</h4></div>
+                        <div class="review-message">review-message review-message review-message review-message
+                            review-message
+                        </div>
+                        <div class="review-board">review-board</div>
+
+                    </div>
+                    <div class="review">
+                        <div class="review-user">
+                            <div class="user-picture"></div>
+                            <div class="user-username"><h3>User</h3></div>
+                            <div class="review-notation">★★★★☆</div>
+                        </div>
+                        <div class="review-title"><h4>Review title</h4></div>
+                        <div class="review-message">review-message review-message review-message review-message
+                            review-message
+                        </div>
+                        <div class="review-board">review-board</div>
+
+                    </div>
+                    <div class="review">
+                        <div class="review-user">
+                            <div class="user-picture"></div>
+                            <div class="user-username"><h3>User</h3></div>
+                            <div class="review-notation">★★★★☆</div>
+                        </div>
+                        <div class="review-title"><h4>Review title</h4></div>
+                        <div class="review-message">review-message review-message review-message review-message
+                            review-message
+                        </div>
+                        <div class="review-board">review-board</div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+
     {% endblock %}
-{% block body %}
-    <div class="profil">
-    <p>E-mail : {{ app.user.email }}</p>
-    <p>Username : {{ app.user.username }}</p>
 
-
-    <h3>Edit</h3>
-    {{ form_start(userFormView, {'enctype': 'multipart/form-data'} ) }}
-    {{ form_row(userFormView.username) }}
-
-    <button type="submit" class="btnValid">
-        Enregistrer
-    </button>
-    {{ form_end(userFormView) }}
-    <hr>
-    <hr>
-    <a href="{{ path('panelprojet') }}"> Mes projets </a>
-
-    </div>
-
-
-{% endblock %}

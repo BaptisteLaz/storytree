@@ -1,3 +1,168 @@
-.profil a{
-  color: #000000;
+$background_body--color: $background--main;
+
+
+.board-section {
+  background-color: $background_body--color;
+  width: 100%;
+  border-radius: 25px;
+  padding: 25px;
+  margin-right: 25px;
+  min-width: 325px;
+  display: flex;
+  flex-direction: column;
+
+  .board-section-header {
+    display: flex;
+    flex-direction: column;
+
+    .board-section-title {
+      display: flex;
+      padding: 15px;
+    }
+
+    .board-section-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 50px;
+      padding: 25px 0;
+
+      .board-section-left {
+        display: flex;
+        flex-direction: row;
+
+        .state {
+          width: 200px;
+          padding: 15px 25px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+      }
+
+      .board-section-right {
+        display: flex;
+        flex-direction: row;
+
+        .position {
+          margin-left: 15px;
+          display: flex;
+          border-radius: 25px;
+          height: 50px;
+          width: 50px;
+          background-color: $background--third;
+          cursor: pointer;
+
+        }
+      }
+    }
+  }
+
+  .boards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    background-color: $background--main;
+    padding: 25px;
+    border-radius: 25px;
+    overflow-y: scroll;
+
+    .board-box {
+      cursor: pointer;
+      height: 345px;
+      border-radius: 25px;
+      padding: 25px;
+      background-color: $background--second;
+
+
+      box-shadow:
+              0 2.4px 2.2px rgba(0, 0, 0, 0.012),
+              0 6.2px 5.6px rgba(0, 0, 0, 0.018),
+              0 12.6px 11.5px rgba(0, 0, 0, 0.022),
+              0 25.9px 23.7px rgba(0, 0, 0, 0.028),
+              0 71px 65px rgba(0, 0, 0, 0.04)
+    ;
+
+    }
+  }
+}
+
+
+.review-section {
+  background-color: $background_body--color;
+  min-width: 500px;
+  border-radius: 25px;
+  margin-left: 25px;
+  padding: 25px 50px 25px 25px;
+  display: flex;
+  flex-direction: column;
+
+  .review-section-header {
+    display: flex;
+    flex-direction: column;
+
+    .review-section-title {
+      display: flex;
+      padding: 15px;
+    }
+
+  }
+
+  .review-container {
+    display: flex;
+    overflow-y: scroll;
+
+
+    .review-list {
+      display: flex;
+      flex-direction: column;
+
+      .review {
+        display: flex;
+        flex-direction: column;
+
+        .review-user {
+          display: flex;
+          align-items: center;
+          padding: 25px 0 5px 15px;
+
+          .user-picture {
+            display: flex;
+            border-radius: 25px;
+            height: 40px;
+            width: 40px;
+            background-color: $background--third;
+            cursor: pointer;
+          }
+
+          .user-username {
+            display: flex;
+            align-items: center;
+            padding-left: 15px;
+          }
+
+          .review-notation {
+            display: flex;
+            align-items: center;
+            padding-left: 5px;
+          }
+        }
+
+        .review-title {
+          padding: 0 15px 0 70px;
+
+        }
+
+        .review-message {
+          padding: 0 15px 0 70px;
+
+        }
+
+        .review-board {
+          padding: 0 15px 0 70px;
+
+        }
+      }
+    }
+  }
 }

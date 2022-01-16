@@ -1,27 +1,79 @@
-
 {% extends 'layout.twig' %}
-    {% block header %}
-        {% include'include/header.twig' %}
-    {% endblock %}
+{% block appnav %}{% include'include/app-sidebar.twig' %}{% endblock %}
+
 {% block body %}
-    <div class="panel_container">
+    <div class="projet-container">
+        <div class="app-projet">
+            <div class="projet-section">
 
-        <div class="cardboard--selected">
-            <div class="cardboard--name">
-                <h2>projet name: {{ projet.name }}</h2>
+
+                <div class="projet-title"><h2>{{ projet.name }} </h2></div>
+                <div class="projet-subtitle"><h3>subtitle</h3></div>
+                <div class="projet-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis
+                    sapien
+                    enim, quis blandit purus feugiat sit amet. Sed blandit urna felis, non aliquam lectus mattis id.
+                    Proin
+                    augue felis, facilisis vitae faucibus eget, gravida id augue. Nulla scelerisque, ante tincidunt
+                    sagittis
+                    sodales, augue velit varius nisl, ac lobortis mauris magna sit amet ante. Praesent tristique
+                    tincidunt
+                    nunc, vel eleifend felis. Suspendisse rutrum et massa at gravida. Duis euismod consequat erat id
+                    elementum. Morbi blandit nibh gravida urna maximus, vel vehicula nulla luctus. Sed magna ipsum,
+                    feugiat
+                    id est nec, aliquam tempus dui. Duis vestibulum suscipit dui, a malesuada orci laoreet sed. Nulla
+                    cursus
+                    sem tortor, id mattis est fermentum id. Pellentesque urna nulla, cursus et sapien nec, maximus
+                    suscipit
+                    turpis. Pellentesque aliquam lacinia imperdiet. Praesent placerat tortor et sapien rutrum, sit amet
+                    ullamcorper metus convallis.
+
+                    Ut quis eros non nisl finibus commodo. Nunc faucibus eget mi malesuada accumsan. Sed nec diam quis
+                    lacus
+                    volutpat porttitor. Nunc eget volutpat dui. Vestibulum placerat auctor lectus, eget porttitor risus
+                    placerat sed. Morbi pretium, arcu sed euismod molestie, ex velit varius eros, sit amet tristique
+                    arcu
+                    enim ac risus. Integer lorem leo, scelerisque sit amet malesuada a, euismod non dolor. Etiam
+                    fringilla
+                    dolor vitae condimentum rhoncus. Fusce elementum diam in convallis maximus. Proin congue non quam
+                    hendrerit faucibus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                    himenaeos. Mauris tincidunt, metus ac placerat lacinia, risus erat ultricies mi, id pharetra purus
+                    lectus at ante. Integer porta cursus finibus.
+
+                    Aenean auctor elementum posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                    posuere cubilia curae; Maecenas accumsan, ex quis dictum pellentesque, lacus nunc molestie ante, id
+                    suscipit orci purus eget eros. Aenean neque nisi, pharetra quis est sed, porttitor iaculis turpis.
+                    Nulla
+                    sed nulla aliquam, ultrices lectus in, iaculis lacus. Etiam vestibulum commodo nisl quis euismod.
+                    Morbi
+                    aliquet finibus luctus. Vestibulum eu erat sed enim consequat pretium. Morbi sit amet turpis nibh.
+                    Duis
+                    ultrices lacinia felis, at imperdiet magna euismod nec. Proin tincidunt ut tortor vitae maximus.
+                    Nullam
+                    in neque sed sapien tempus hendrerit. Etiam elementum dui eu convallis pulvinar. Nulla non diam
+                    lectus.
+                </div>
+
+                <div class="projet-buttons">
+                    <a href="{{ path('board_create', {'id':projet.id}) }}" style="color: black">
+                        <div class="projet-btn">Nouvelle board</div>
+                    </a>
+
+                        <div class="projet-btn">Rendre publique</div>
+
+                </div>
+
             </div>
-            <div class="cardboard--logo">
 
-                <a href="{{ path('board_create', {'id':projet.id}) }}" style="color: black"><h3>Nouvelle board</h3></a>
-                <a href="{{ path('panelboard', {'id':projet.id}) }}" style="color: black"><h3>Boards du projet</h3></a>
 
+            <div class="projet-cover">
+                <div class="cover">
+                    <div class="projet-favoris">⭐</div>
+                </div>
             </div>
+
 
         </div>
+        {% include'board/panel_board.twig' %}
     </div>
-
-
-
-
 
 {% endblock %}

@@ -1,47 +1,47 @@
-{% extends 'layout.twig' %}
-    {% block header %}
-        {% include'include/header.twig' %}
-    {% endblock %}
+{# {% extends 'layout.twig' %} #}
+
 {% block body %}
 
-<div class="panel_container">
-   <h2>Voici toutes vos Boards.</h2>
-    <div id="panel" class="panel_board">
+    <div class="panel_container">
+        <div id="panel" class="panel_board">
 
-        {% for board in boards %}
-            <div class="cardboard">
-                <div class="cardboard--name">
-                    <h2><a href="{{ path('board', {'id':board.id}) }}"> {{ board.name }}  </a></h2>
+            {% for board in boards %}
+                <div class="cardboard">
+                    <div class="cardboard--name">
+                        <h2><a href="{{ path('board', {'id':board.id}) }}"> {{ board.name }}  </a></h2>
+                    </div>
+                    <div class="cardboard--logo">
+
+                        <a href="{{ path('board', {'id':board.id}) }}">
+                            Board:
+                            {% for node in board.node %}
+                                <div class="card--node">
+                                    <a href="{{ path('node', {'id':node.id}) }}">
+                                        Node:
+                                        {{ node.name }}
+                                    </a>
+                                    {% for event in node.event %}
+                                        <div class="card--event">
+                                            <a href="{{ path('event', {'id':event.id}) }}">Event: {{ event.name }}</a>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                        </a>
+
+                    </div>
+
                 </div>
-                <div class="cardboard--logo">
+            {% endfor %}
+        </div>
+        <div class="panel-description"><h2>Voici toutes vos Boards.</h2>
 
-                    <a href="{{ path('board', {'id':board.id}) }}">
-                        Board:
-                        {% for node in board.node %}
-                            <div class="card--node">
-                                <a href="{{ path('node', {'id':node.id}) }}">
-                                    Node:
-                                    {{ node.name }}
-                                </a>
-                                {% for event in node.event %}
-                                    <div class="card--event">
-                                        <a href="{{ path('event', {'id':event.id}) }}">Event: {{ event.name }}</a></div>
-                                {% endfor %}
-                            </div>
-                        {% endfor %}
-                    </a>
-
-                </div>
-
-            </div>
-        {% endfor %}
+        </div>
     </div>
-    </div>
-
     <script type="text/javascript" src="{{ asset('js/zoom.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/movable.js') }}"></script>
 
 {% endblock %}
 
-{#{% block javascript %}#}
-{#{% endblock %}#}
+{# {% block javascript %} #}
+{# {% endblock %} #}

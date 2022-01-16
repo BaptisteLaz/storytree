@@ -6,7 +6,7 @@
   justify-content: space-between;
   height: 50%;
   width: 100%;
-  background: $background--second;
+  background: $background--main;
   overflow: hidden;
   &--left {
     height: 100%;
@@ -14,7 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $background--second;
+    background-color: $background--main;
 
   }
 
@@ -23,7 +23,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $background--second;
+    background-color: $background--main;
   }
 }
 

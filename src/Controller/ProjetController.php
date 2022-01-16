@@ -12,20 +12,20 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProjetController extends AbstractController
 {
-
-    /**
-     * @Route("/panelprojet", name="panelprojet")
-     */
-    public function index(EntityManagerInterface $entityManager)
-    {
-        $projetRepository = $entityManager->getRepository(Projet::class);
-
-        $projets = $projetRepository->findProjetById($user = $this->getUser());
-
-
-        return $this->render('projet/panel_projet.twig', compact('projets')
-        );
-    }
+//
+//    /**
+//     * @Route("/panelprojet", name="panelprojet")
+//     */
+//    public function index(EntityManagerInterface $entityManager)
+//    {
+//        $projetRepository = $entityManager->getRepository(Projet::class);
+//
+//        $projets = $projetRepository->findProjetById($user = $this->getUser());
+//
+//
+//        return $this->render('projet/panel_projet.twig', compact('projets')
+//        );
+//    }
 
     /**
      * @Route("/projet/{id}", name="projet")
@@ -35,7 +35,9 @@ class ProjetController extends AbstractController
         $projetRepository = $entityManager->getRepository(Projet::class);
         $projet = $projetRepository->find($id);
 
-        return $this->render('projet/projet.twig', compact('projet'));
+        $boards = $projet->getBoard();
+
+        return $this->render('projet/projet.twig', compact('projet','boards'));
     }
 
 

@@ -1,0 +1,85 @@
+.projet-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-projet {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - #{$header--height});
+  margin-bottom: 100px;
+}
+
+.projet-section {
+  background-color: $background_body--color;
+  width: 100%;
+  height: calc(100% - #{$header--height});
+  border-radius: 25px;
+  padding: 25px;
+  min-width: 325px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+.projet-title {
+  width: 100%;
+  display: flex;
+  padding: 15px 0 15px 15px;
+}
+
+.projet-subtitle {
+  padding: 25px;
+}
+
+.projet-description {
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.projet-buttons {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.projet-btn {
+  font-size: 18px;
+  padding: 0 15px;
+  height: 38px;
+  border-radius: 15px;
+  background-color: rgba(83, 116, 255, 0.3);
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+}
+
+
+.projet-cover {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover {
+  width: 60%;
+  height: 80%;
+  background-color: $background--third;
+
+  .projet-favoris {
+    position: relative;
+    display: flex;
+    top: 25px;
+    right: 25px;
+    justify-content: flex-end;
+  }
+}
